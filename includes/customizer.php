@@ -3,6 +3,7 @@
 class Customizer {
 
     protected static $wds_panel_id = 'wds_panel';
+	protected static $wsu_panel_id = 'wsu_panel';
     protected static $customizers = array();
 
 
@@ -27,7 +28,11 @@ class Customizer {
 
         require_once Plugin::get('dir') . '/classes/class-customizer-section.php';
 
+		require_once $customizer_dir . 'wsu-site-options.php';
+
+		require_once $customizer_dir . 'wds-theme-options.php';
         require_once $customizer_dir . 'wds-advanced-options.php';
+		
 
         add_action( 'customize_register', array( __CLASS__, 'setup_customizer' ) );
 
@@ -35,6 +40,15 @@ class Customizer {
 
 
     public static function setup_customizer( $wp_customize ) {
+
+		$wp_customize->add_panel(
+			self::$wsu_panel_id,
+			array(
+				'title' => '(BETA) WSU Site Settings',
+				'description' => 'Settings for WSU Web Design System Theme', // Include html tags such as <p>.
+				'priority' => 160, // Mixed with top-level-section hierarchy.
+			)
+		);
 
         $wp_customize->add_panel(
 			self::$wds_panel_id,
@@ -45,8 +59,11 @@ class Customizer {
 			)
 		);
 
+		self::$customizers[] = new WSU_Site_Options( $wp_customize, self::$wsu_panel_id );
 
+		self::$customizers[] = new WDS_Theme_Options( $wp_customize, self::$wds_panel_id );
         self::$customizers[] = new WDS_Advanced_Options( $wp_customize, self::$wds_panel_id );
+		
 
 	}
 
