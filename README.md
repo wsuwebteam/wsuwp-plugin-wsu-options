@@ -12,14 +12,97 @@
     - parent_name:        string | empty | Parent site name
     - parent_name_mobile: string | empty | Parent site name (short)
     - parent_url:         string | empty | url
-    - give_link:          string | empty | url
+    - giveLink:           string | empty | url
+    - applyLink:          string | empty | url
+- scripts
+    - syndicate           bool | false
+    - jquery              bool | false
 - social_accounts:
     - twitter:   string | empty | url
     - facebook:  string | empty | url 
     - youtube:   string | empty | url
     - instagram: string | empty | url
     - linkedin:  string | empty | url
+- contact:
+    - organization   string | empty
+    - address        string | empty
+    - city           string | empty
+    - state          string | empty
+    - zip            string | empty
+    - phone          string | empty
+    - email          string | empty
 - wds:
     - show_search: bool | true | Show search/quicklinks section
     - local_search: bool | true | Default search to local site
-    - version: string | 2 | current version
+    - version: string | 2 | 2.x, 2.beta, 3.beta
+- template_page
+    - displayBylineBefore       string | empty, default, hide, show
+    - displayBylineAfter        string | empty, default, hide, show
+    - displayCategories         string | empty, default, hide, show
+    - dispalyPublishDateBefore  string | empty, default, hide, show
+    - dispalyPublishDateAfter   string | empty, default, hide, show
+    - displayShareBefore        string | empty, default, hide, show
+    - displayShareAfter         string | empty, default, hide, show
+    - displayTags               string | empty, default, hide, show
+    - widgetsBefore             bool | false
+    - widgetsAfter              bool | false
+    - addSidebar                bool | false
+    - sidebar                   string | default
+- template_post
+    - displayBanner             string | empty, default, hide, show
+    - displayStyle              string | empty, default
+    - displayBylineBefore       string | empty, default, hide, show
+    - displayBylineAfter        string | empty, default, hide, show
+    - displayCategories         string | empty, default, hide, show
+    - dispalyPublishDateBefore  string | empty, default, hide, show
+    - dispalyPublishDateAfter   string | empty, default, hide, show
+    - displayShareBefore        string | empty, default, hide, show
+    - displayShareAfter         string | empty, default, hide, show
+    - displayTags               string | empty, default, hide, show
+    - widgetsBefore             bool | false 
+    - widgetsAfter              bool | false
+    - sidebar                   string | default
+- template_post_archive
+    - displayBylineBefore       string | empty, default, hide, show
+    - displayBylineAfter        string | empty, default, hide, show
+    - displayCategories         string | empty, default, hide, show
+    - dispalyPublishDateBefore  string | empty, default, hide, show
+    - dispalyPublishDateAfter   string | empty, default, hide, show
+    - displayShareBefore        string | empty, default, hide, show
+    - displayShareAfter         string | empty, default, hide, show
+    - displayTags               string | empty, default, hide, show
+    - widgetsBefore             bool | false 
+    - widgetsAfter              bool | false
+    - addSidebar                bool | false
+    - sidebar                   string | default
+- template_category
+    - displayBylineBefore       string | empty, default, hide, show
+    - displayBylineAfter        string | empty, default, hide, show
+    - displayCategories         string | empty, default, hide, show
+    - dispalyPublishDateBefore  string | empty, default, hide, show
+    - dispalyPublishDateAfter   string | empty, default, hide, show
+    - displayShareBefore        string | empty, default, hide, show
+    - displayShareAfter         string | empty, default, hide, show
+    - displayTags               string | empty, default, hide, show
+    - widgetsBefore             bool | false 
+    - widgetsAfter              bool | false
+    - addSidebar                bool | false
+    - sidebar                   string | default
+- template_tag
+    - displayBylineBefore       string | empty, default, hide, show
+    - displayBylineAfter        string | empty, default, hide, show
+    - displayCategories         string | empty, default, hide, show
+    - dispalyPublishDateBefore  string | empty, default, hide, show
+    - dispalyPublishDateAfter   string | empty, default, hide, show
+    - displayShareBefore        string | empty, default, hide, show
+    - displayShareAfter         string | empty, default, hide, show
+    - displayTags               string | empty, default, hide, show
+    - widgetsBefore             bool | false 
+    - widgetsAfter              bool | false
+    - addSidebar                bool | false
+    - sidebar                   string | default
+- theme
+    - displayQuicklinks         string | empty, default, hide, show  
+    - siteHeader                string | unit, campus, system
+    - displaySubtitle           string | empty, default, hide, show
+    - allowRestricedOptions     bool | false

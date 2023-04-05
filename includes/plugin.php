@@ -26,7 +26,27 @@ class Plugin {
 
 	public static function init() {
 
+		require_once __DIR__ . '/widgets.php';
 		require_once __DIR__ . '/customizer.php';
+		require_once __DIR__ . '/wsu-options.php';
+		require_once __DIR__ . '/option-sync.php';
+
+	}
+
+
+	public static function get_wsu_option( $option_group, $option_key, $default = '' ) {
+
+		$wsu_options = get_option( 'wsuwp', array() );
+
+		if ( ! empty( $wsu_options[ $option_group ] ) && isset( $wsu_options[ $option_group ][ $option_key ] ) ) {
+
+			return $wsu_options[ $option_group ][ $option_key ];
+
+		} else {
+
+			return $default;
+
+		}
 
 	}
 
