@@ -28,8 +28,9 @@ class WDS_Advanced_Options extends Customizer_Section {
 				'label'       => __( 'WDS Version' ),
 				'description' => __( 'Change WDS Version.' ),
 				'choices'     => array(
-					2 => 'Version 2',
-					3 => 'Version 3',
+					'2.x'      => 'Version 2 (recommended)',
+					'2.beta'   => 'Beta | Version 2',
+					'3.beta'   => 'Beta | Version 3',
 				),
 			)
 		);

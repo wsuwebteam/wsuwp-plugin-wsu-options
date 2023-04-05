@@ -2,42 +2,38 @@
 
 class Customizer_Section {
 
-	protected $wp_customize;
-	protected $panel_id;
-	protected $section_id;
-	protected $section_title;
-	protected $priority      = 10;
-	protected $permissions   = 'edit_theme_options';
-	protected $description   = '';
+	protected static $panel_id;
+	protected static $section_id;
+	protected static $section_title;
+	protected static $priority      = 10;
+	protected static $permissions   = 'edit_theme_options';
+	protected static $description   = '';
 
-	public function __construct( $wp_customize, $panel_id = false ) {
 
-		$this->wp_customize = $wp_customize;
-		$this->panel_id     = $panel_id;
+	public static function register_section( $wp_customize, $section_id = false, $section_args = array() ) {
 
-		if ( ! empty( $this->section_id ) ) {
+		if ( $section_id ) {
 
-			$this->add_section();
+			self::$section_id = $section_id;
 
 		}
 
-		$this->add_controls();
-
-	}
-
-
-	protected function add_section() {
-
-		$this->wp_customize->add_section(
-			$this->section_id,
-			array(
-				'title'       => $this->section_title,
-				'description' => $this->description,
-				'capability'  => $this->permissions,
-				'panel'       => $this->panel_id,
-				'priority'    => $this->priority,
-			)
+		$register_args = array(
+			'title'       => ( ! empty( $section_args['displayName'] ) ) ? $section_args['displayName'] : static::$section_title,
+			'description' => static::$description,
+			'capability'  => static::$permissions,
+			'priority'    => static::$priority,
 		);
+
+		if ( ! empty( static::$panel_id ) ) {
+
+			$register_args['panel'] = static::$panel_id;
+
+		}
+
+		$wp_customize->add_section( static::$section_id, $register_args );
+
+		static::add_controls( $wp_customize, $section_args );
 
 	}
 
