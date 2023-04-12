@@ -8,7 +8,7 @@ class Plugin {
 		switch ( $property ) {
 
 			case 'version':
-				return '0.0.2';
+				return '1.0.0';
 
 			case 'dir':
 				return plugin_dir_path( dirname( __FILE__ ) );
@@ -27,9 +27,18 @@ class Plugin {
 	public static function init() {
 
 		require_once __DIR__ . '/widgets.php';
-		require_once __DIR__ . '/customizer.php';
+
 		require_once __DIR__ . '/wsu-options.php';
-		require_once __DIR__ . '/option-sync.php';
+
+		if ( defined( 'WDSTHEMEVERSION' ) && 3 === WDSTHEMEVERSION ) {
+
+			require_once __DIR__ . '/customizer.php';
+
+		} else {
+
+			require_once __DIR__ . '/option-sync.php';
+
+		}
 
 	}
 
