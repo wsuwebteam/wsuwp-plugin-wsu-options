@@ -13,12 +13,6 @@ class Option_Sync {
 
 	public static function sync_options() {
 
-		if ( ! defined( 'ISWDS' ) ) {
-
-			return true;
-
-		}
-
 		$option_version = get_option( 'wsuwp_options_version', '' );
 
 		if ( self::$version === $option_version ) {

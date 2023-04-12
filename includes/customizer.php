@@ -6,6 +6,25 @@ class Customizer {
 	protected static $template_options_panel = 'wsu_template_options';
 
 	protected static $templates = array(
+		'frontpage' => array(
+			'option_group'       => 'template_frontpage',
+			'displayName'        => 'Homepage',
+			'supports'=> array(
+				'bylineBefore',
+				'bylineAfter',
+				'publishDateBefore',
+				'publishDateAfter',
+				'shareBefore',
+				'shareAfter',
+				'categories',
+				'tags',
+				'format',
+				'widgetsBefore',
+				'widgetsAfter',
+				'addSidebar',
+				'sidebar',
+			),
+		),
 		'page' => array(
 			'option_group'       => 'template_page',
 			'displayName'        => 'Page',
@@ -144,6 +163,7 @@ class Customizer {
 			require_once $customizer_dir . 'customizer-section-theme-options-advanced.php';
 			require_once $customizer_dir . 'customizer-section-theme-options-header.php';
 			require_once $customizer_dir . 'customizer-section-social.php';
+			require_once $customizer_dir . 'customizer-section-contact.php';
 			require_once $customizer_dir . 'customizer-section-template-layout.php';
 
 
@@ -151,6 +171,7 @@ class Customizer {
 			Customizer_Section_Theme_Options_Advanced::register_section( $wp_customize );
 			Customizer_Section_Theme_Options_Header::register_section( $wp_customize );
 			Customizer_Section_Social::register_section( $wp_customize );
+			Customizer_Section_Contact::register_section( $wp_customize );
 
 			$sidebars = Widgets::get_sidebars();
 
@@ -160,24 +181,6 @@ class Customizer {
 
 				Customizer_Section_Template_Layout::register_section( $wp_customize, $template_args['option_group'], $template_args );
 			}
-
-			/*require_once $customizer_dir . 'wsu-site-options.php';
-
-			require_once $customizer_dir . 'wds-theme-options.php';
-			require_once $customizer_dir . 'wds-advanced-options.php';
-			require_once $customizer_dir . 'section-social-accounts.php';
-			require_once $customizer_dir . 'section-contact.php';
-
-			require_once $customizer_dir . 'wsu-theme-settings.php';
-
-			self::add_panels( $wp_customize );
-
-			self::$customizers[] = new WSU_Site_Options( $wp_customize, self::$wsu_panel_id );
-			self::$customizers[] = new WDS_Theme_Options( $wp_customize, self::$wds_panel_id );
-			self::$customizers[] = new WDS_Advanced_Options( $wp_customize, self::$wds_panel_id );
-			self::$customizers[] = new Section_Social_Accounts( $wp_customize );
-			self::$customizers[] = new Section_Contact( $wp_customize );
-			self::$customizers[] = new WSU_Theme_Settings( $wp_customize );*/
 
 		}
 
