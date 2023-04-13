@@ -3,7 +3,7 @@
 class Customizer_Section_Theme_Options extends Customizer_Section {
 	protected static $section_id    = 'wsu_theme_options';
 	protected static $section_title = 'Theme Options';
-	protected static $permissions   = 'activate_plugins';
+	protected static $permissions   = 'manage_options';
 	protected static $panel_id      = 'wsu_theme_options';
 	protected static $description   = '';
 	protected static $priority      = 10;

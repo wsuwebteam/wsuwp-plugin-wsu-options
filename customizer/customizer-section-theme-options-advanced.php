@@ -3,7 +3,7 @@
 class Customizer_Section_Theme_Options_Advanced extends Customizer_Section {
 	protected static $section_id    = 'wsu_theme_options_advanced';
 	protected static $section_title = 'Advanced Options';
-	protected static $permissions   = 'activate_plugins';
+	protected static $permissions   = 'manage_options';
 	protected static $panel_id      = 'wsu_theme_options';
 	protected static $description   = '';
 	protected static $priority      = 100;
@@ -13,7 +13,7 @@ class Customizer_Section_Theme_Options_Advanced extends Customizer_Section {
 		$wp_customize->add_setting(
 			static::get_option_id( 'wds', 'version' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => '2.x',
 				'type'       => 'option',
 			)
@@ -32,7 +32,7 @@ class Customizer_Section_Theme_Options_Advanced extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( 'wds', 'version' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 2,
 					'type'       => 'option',
 				)

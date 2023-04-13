@@ -4,7 +4,7 @@ class Customizer_Section_Contact extends Customizer_Section {
 	protected static $section_id    = 'wsu_contact';
 	protected static $section_title = 'Contact Information';
 	protected static $priority      = 170;
-	protected static $permissions   = 'activate_plugins';
+	protected static $permissions   = 'manage_options';
 	protected static $description   = '';
 
 
@@ -13,7 +13,7 @@ class Customizer_Section_Contact extends Customizer_Section {
 		$wp_customize->add_setting(
 			static::get_option_id( 'contact', 'organization' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => '',
 				'type'       => 'option',
 			)
@@ -22,7 +22,7 @@ class Customizer_Section_Contact extends Customizer_Section {
         $wp_customize->add_setting(
 			static::get_option_id( 'contact', 'address' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => '',
 				'type'       => 'option',
 			)
@@ -31,7 +31,7 @@ class Customizer_Section_Contact extends Customizer_Section {
         $wp_customize->add_setting(
 			static::get_option_id( 'contact', 'city' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => '',
 				'type'       => 'option',
 			)
@@ -40,7 +40,7 @@ class Customizer_Section_Contact extends Customizer_Section {
         $wp_customize->add_setting(
 			static::get_option_id( 'contact', 'state ' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => '',
 				'type'       => 'option',
 			)
@@ -49,7 +49,7 @@ class Customizer_Section_Contact extends Customizer_Section {
         $wp_customize->add_setting(
 			static::get_option_id( 'contact', 'zip' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => '',
 				'type'       => 'option',
 			)
@@ -58,7 +58,7 @@ class Customizer_Section_Contact extends Customizer_Section {
 		$wp_customize->add_setting(
 			static::get_option_id( 'contact', 'phone' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => '',
 				'type'       => 'option',
 			)
@@ -67,7 +67,7 @@ class Customizer_Section_Contact extends Customizer_Section {
 		$wp_customize->add_setting(
 			static::get_option_id( 'contact', 'email' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => '',
 				'type'       => 'option',
 			)

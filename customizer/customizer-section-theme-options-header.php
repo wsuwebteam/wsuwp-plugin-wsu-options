@@ -3,7 +3,7 @@
 class Customizer_Section_Theme_Options_Header extends Customizer_Section {
 	protected static $section_id    = 'wsu_theme_options_header';
 	protected static $section_title = 'Header Options';
-	protected static $permissions   = 'activate_plugins';
+	protected static $permissions   = 'manage_options';
 	protected static $panel_id      = 'wsu_theme_options';
 	protected static $description   = '';
 	protected static $priority      = 20;
@@ -26,7 +26,7 @@ class Customizer_Section_Theme_Options_Header extends Customizer_Section {
 		$wp_customize->add_setting(
 			static::get_option_id( 'theme', 'siteHeader' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => 'unit',
 				'type'       => 'option',
 			)
@@ -48,7 +48,7 @@ class Customizer_Section_Theme_Options_Header extends Customizer_Section {
 		$wp_customize->add_setting(
 			static::get_option_id( 'theme', 'displayQuicklinks' ),
 			array(
-				'capability' => 'edit_theme_options',
+				'capability' => 'manage_options',
 				'default'    => 'default',
 				'type'       => 'option',
 			)

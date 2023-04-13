@@ -2,7 +2,7 @@
 
 class Customizer_Section_Template_Layout extends Customizer_Section {
 	protected static $priority      = 170;
-	protected static $permissions   = 'activate_plugins';
+	protected static $permissions   = 'manage_options';
 	protected static $description   = '';
 	protected static $panel_id      = 'wsu_template_options';
 
@@ -14,7 +14,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'sidebar' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -39,7 +39,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'addSidebar' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => false,
 					'type'       => 'option',
 				)
@@ -63,7 +63,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayBylineBefore' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -92,7 +92,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayPublishDateBefore' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -121,7 +121,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayShareBefore' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -150,7 +150,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayBanner' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -179,7 +179,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayBylineAfter' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -210,7 +210,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayPublishDateAfter' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -241,7 +241,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayShareAfter' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -270,7 +270,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayCategories' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -299,7 +299,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'displayTags' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => 'default',
 					'type'       => 'option',
 				)
@@ -328,7 +328,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'widgetsBefore' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => false,
 					'type'       => 'option',
 				)
@@ -354,7 +354,7 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			$wp_customize->add_setting(
 				static::get_option_id( $section_args['option_group'], 'widgetsAfter' ),
 				array(
-					'capability' => 'edit_theme_options',
+					'capability' => 'manage_options',
 					'default'    => false,
 					'type'       => 'option',
 				)
