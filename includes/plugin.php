@@ -8,7 +8,7 @@ class Plugin {
 		switch ( $property ) {
 
 			case 'version':
-				return '1.0.0';
+				return '1.0.1';
 
 			case 'dir':
 				return plugin_dir_path( dirname( __FILE__ ) );
