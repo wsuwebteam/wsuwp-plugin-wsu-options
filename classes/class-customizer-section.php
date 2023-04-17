@@ -38,13 +38,13 @@ class Customizer_Section {
 	}
 
 
-	protected function get_option_id( $group, $key, $option_slug = 'wsuwp' ) {
+	protected static function get_option_id( $group, $key, $option_slug = 'wsuwp' ) {
 
 		return $option_slug . '[' . $group . '][' . $key . ']';
 
 	}
 
-	protected function get_option_slug( $group, $key, $option_slug = 'wsuwp' ) {
+	protected static function get_option_slug( $group, $key, $option_slug = 'wsuwp' ) {
 
 		return $option_slug . '_' . $group . '_' . $key . '_control';
 
