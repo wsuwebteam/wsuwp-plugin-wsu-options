@@ -161,7 +161,6 @@ class Customizer {
 
 			require_once $customizer_dir . 'customizer-section-theme-options.php';
 			require_once $customizer_dir . 'customizer-section-theme-options-advanced.php';
-			require_once $customizer_dir . 'customizer-section-theme-options-header.php';
 			require_once $customizer_dir . 'customizer-section-social.php';
 			require_once $customizer_dir . 'customizer-section-contact.php';
 			require_once $customizer_dir . 'customizer-section-template-layout.php';
@@ -169,7 +168,6 @@ class Customizer {
 
 			Customizer_Section_Theme_Options::register_section( $wp_customize );
 			Customizer_Section_Theme_Options_Advanced::register_section( $wp_customize );
-			Customizer_Section_Theme_Options_Header::register_section( $wp_customize );
 			Customizer_Section_Social::register_section( $wp_customize );
 			Customizer_Section_Contact::register_section( $wp_customize );
 

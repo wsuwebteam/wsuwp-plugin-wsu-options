@@ -62,6 +62,26 @@ class Customizer_Section_Theme_Options_Advanced extends Customizer_Section {
 			);
 		}
 
+		$wp_customize->add_setting(
+			static::get_option_id( 'theme', 'allow_restriced_options' ),
+			array(
+				'capability' => 'delete_sites',
+				'default'    => false,
+				'type'       => 'option',
+			)
+		);
+
+		$wp_customize->add_control(
+			static::get_option_slug( 'theme', 'allow_restriced_options' ),
+			array(
+				'settings'    => static::get_option_id( 'theme', 'allow_restriced_options' ),
+				'type'        => 'checkbox',
+				'section'     => static::$section_id,
+				'label'       => 'Allow Restricted Options',
+				'description' => '',
+			)
+		);
+
 	}
 
 }

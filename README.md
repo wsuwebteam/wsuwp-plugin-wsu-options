@@ -8,12 +8,18 @@
 ### wsuwp
 ( type | default | description )
 
+- search:
+    - showOptions: string | empty, default, hide, show
+    - context:     string | site,wsu
+    - placeholder  string | Search
 - site_options:
     - parent_name:        string | empty | Parent site name
     - parent_name_mobile: string | empty | Parent site name (short)
     - parent_url:         string | empty | url
     - giveLink:           string | empty | url
     - applyLink:          string | empty | url
+    - primaryActionText:  string | default, give
+    - primaryActionLink:  string | default
 - scripts
     - syndicate           bool | false
     - jquery              bool | false
