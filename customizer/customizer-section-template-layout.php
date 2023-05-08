@@ -145,10 +145,10 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 
 		}
 
-		if ( in_array( 'banner', $section_args['supports']) ) {
+		if ( in_array( 'featured-image', $section_args['supports']) ) {
 
 			$wp_customize->add_setting(
-				static::get_option_id( $section_args['option_group'], 'displayBanner' ),
+				static::get_option_id( $section_args['option_group'], 'displayFeaturedImage' ),
 				array(
 					'capability' => 'manage_options',
 					'default'    => 'default',
@@ -157,12 +157,12 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 			);
 	
 			$wp_customize->add_control(
-				static::get_option_slug( $section_args['option_group'], 'displayBanner' ),
+				static::get_option_slug( $section_args['option_group'], 'displayFeaturedImage' ),
 				array(
-					'settings'    => static::get_option_id( $section_args['option_group'], 'displayBanner' ),
+					'settings'    => static::get_option_id( $section_args['option_group'], 'displayFeaturedImage' ),
 					'type'        => 'select',
 					'section'     => static::$section_id,
-					'label'       => 'Display Feature Image Banner',
+					'label'       => 'Display Feature Image',
 					'description' => '',
 					'choices'     => array(
 						'default' => 'Default',
