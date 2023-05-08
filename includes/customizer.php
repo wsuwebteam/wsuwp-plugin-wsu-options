@@ -9,7 +9,7 @@ class Customizer {
 		'frontpage' => array(
 			'option_group'       => 'template_frontpage',
 			'displayName'        => 'Homepage',
-			'supports'=> array(
+			'supports' => array(
 				'bylineBefore',
 				'bylineAfter',
 				'publishDateBefore',
@@ -48,7 +48,7 @@ class Customizer {
 			'option_group'       => 'template_post',
 			'displayName'        => 'Single Post',
 			'format'             => 'article',
-			'supports'=> array(
+			'supports' => array(
 				'bylineBefore',
 				'bylineAfter',
 				'publishDateBefore',
@@ -58,16 +58,16 @@ class Customizer {
 				'categories',
 				'tags',
 				'format',
-				'banner',
+				'featured-image',
 				'widgetsBefore',
 				'widgetsAfter',
 				'sidebar',
 			),
 		),
-		'post_archive' => array(
-			'option_group'       => 'template_post_archive',
+		'home' => array(
+			'option_group'       => 'template_home',
 			'displayName'        => 'Post Archive/Blog',
-			'supports'=> array(
+			'supports '=> array(
 				'bylineBefore',
 				'bylineAfter',
 				'publishDateBefore',
@@ -75,6 +75,7 @@ class Customizer {
 				'shareBefore',
 				'shareAfter',
 				'categories',
+				'featured-image',
 				'tags',
 				'format',
 				'widgetsBefore',
@@ -86,7 +87,7 @@ class Customizer {
 		'category' => array(
 			'option_group'       => 'template_category',
 			'displayName'        => 'Category Archive',
-			'supports'=> array(
+			'supports' => array(
 				'bylineBefore',
 				'bylineAfter',
 				'publishDateBefore',
@@ -105,7 +106,7 @@ class Customizer {
 		'tag' => array(
 			'option_group'       => 'template_tag',
 			'displayName'        => 'Tag Archive',
-			'supports'=> array(
+			'supports' => array(
 				'bylineBefore',
 				'bylineAfter',
 				'publishDateBefore',
