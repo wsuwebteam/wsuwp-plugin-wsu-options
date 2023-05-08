@@ -67,7 +67,7 @@ class Customizer {
 		'home' => array(
 			'option_group'       => 'template_home',
 			'displayName'        => 'Post Archive/Blog',
-			'supports '=> array(
+			'supports' => array(
 				'bylineBefore',
 				'bylineAfter',
 				'publishDateBefore',
