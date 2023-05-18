@@ -63,7 +63,7 @@ class Customizer_Section_Theme_Options_Advanced extends Customizer_Section {
 		}
 
 		$wp_customize->add_setting(
-			static::get_option_id( 'theme', 'allow_restriced_options' ),
+			static::get_option_id( 'theme', 'allowRestricedOptions' ),
 			array(
 				'capability' => 'delete_sites',
 				'default'    => false,
@@ -72,12 +72,32 @@ class Customizer_Section_Theme_Options_Advanced extends Customizer_Section {
 		);
 
 		$wp_customize->add_control(
-			static::get_option_slug( 'theme', 'allow_restriced_options' ),
+			static::get_option_slug( 'theme', 'allowRestricedOptions' ),
 			array(
-				'settings'    => static::get_option_id( 'theme', 'allow_restriced_options' ),
+				'settings'    => static::get_option_id( 'theme', 'allowRestricedOptions' ),
 				'type'        => 'checkbox',
 				'section'     => static::$section_id,
 				'label'       => 'Allow Restricted Options',
+				'description' => '',
+			)
+		);
+
+		$wp_customize->add_setting(
+			static::get_option_id( 'theme', 'allow_edit_templates' ),
+			array(
+				'capability' => 'delete_sites',
+				'default'    => false,
+				'type'       => 'option',
+			)
+		);
+
+		$wp_customize->add_control(
+			static::get_option_slug( 'theme', 'allow_edit_templates' ),
+			array(
+				'settings'    => static::get_option_id( 'theme', 'allow_edit_templates' ),
+				'type'        => 'checkbox',
+				'section'     => static::$section_id,
+				'label'       => 'Allow Edit Templates',
 				'description' => '',
 			)
 		);
