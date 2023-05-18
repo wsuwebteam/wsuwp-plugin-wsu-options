@@ -58,6 +58,36 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 
 		}
 
+		if ( in_array( 'pageTitle', $section_args['supports']) ) {
+
+			$wp_customize->add_setting(
+				static::get_option_id( $section_args['option_group'], 'displayPageTitle' ),
+				array(
+					'capability' => 'manage_options',
+					'default'    => 'default',
+					'type'       => 'option',
+				)
+			);
+	
+			$wp_customize->add_control(
+				static::get_option_slug( $section_args['option_group'], 'displayPageTitle' ),
+				array(
+					'settings'    => static::get_option_id( $section_args['option_group'], 'displayPageTitle' ),
+					'type'        => 'select',
+					'section'     => static::$section_id,
+					'label'       => 'Display Page Title',
+					'description' => '',
+					'choices'     => array(
+						'default' => 'Default',
+						'show'    => 'Show',
+						'hidden'  => 'Hidden',
+						'hide'    => 'Remove',
+					),
+				)
+			);
+
+		}
+
 		if ( in_array( 'bylineBefore', $section_args['supports']) ) {
 
 			$wp_customize->add_setting(
