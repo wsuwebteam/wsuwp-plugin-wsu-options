@@ -7,12 +7,14 @@
 
 ### wsuwp
 ( type | default | description )
-
+- site_info:
+    
 - search:
     - showOptions: string | empty, default, hide, show
     - context:     string | site,wsu
     - placeholder  string | Search
 - site_options:
+    - campus:             string | empty | pullman,spokane,vancouver,tri-cities,everret,global 
     - parent_name:        string | empty | Parent site name
     - parent_name_mobile: string | empty | Parent site name (short)
     - parent_url:         string | empty | url

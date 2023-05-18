@@ -15,7 +15,7 @@ class Customizer_Section_Theme_Options extends Customizer_Section {
 		if ( Plugin::get_wsu_option( 'theme', 'allowRestricedOptions', false ) ) {
 
 			$header_options = array_merge( 
-				$header_options, 
+				$header_options,
 				array(
 					'campus' => 'Campus (Restricted)',
 					'system' => 'System (Restricted)',
@@ -43,6 +43,37 @@ class Customizer_Section_Theme_Options extends Customizer_Section {
 				'choices'     => $header_options,
 			)
 		);
+
+
+		$wp_customize->add_setting(
+			static::get_option_id( 'site_options', 'campus' ),
+			array(
+				'capability' => 'manage_options',
+				'default'    => '',
+				'type'       => 'option',
+			)
+		);
+
+		$wp_customize->add_control(
+			static::get_option_slug( 'site_options', 'campus' ),
+			array(
+				'settings'    => static::get_option_id( 'site_options', 'campus' ),
+				'type'        => 'select',
+				'section'     => static::$section_id,
+				'label'       => 'Campus',
+				'description' => '',
+				'choices'     => array(
+					''           => 'N/A',
+					'pullman'    => 'Pullman',
+					'spokane'    => 'Spokane',
+					'tri-cities' => 'Tri-Cities',
+					'vancouver'  => 'Vancouver',
+					'everett'    => 'Everett',
+					'global'     => 'Global Campus',
+				),
+			)
+		);
+
 
 		$wp_customize->add_setting(
 			static::get_option_id( 'theme', 'displayQuicklinks' ),

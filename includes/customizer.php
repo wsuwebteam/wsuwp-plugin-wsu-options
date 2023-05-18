@@ -7,9 +7,10 @@ class Customizer {
 
 	protected static $templates = array(
 		'frontpage' => array(
-			'option_group'       => 'template_frontpage',
+			'option_group'       => 'template_front_page',
 			'displayName'        => 'Homepage',
 			'supports' => array(
+				'pageTitle',
 				'bylineBefore',
 				'bylineAfter',
 				'publishDateBefore',
