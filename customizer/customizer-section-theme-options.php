@@ -188,6 +188,36 @@ class Customizer_Section_Theme_Options extends Customizer_Section {
 			)
 		);
 
+
+		$wp_customize->add_setting(
+			static::get_option_id( 'site_options', 'allowComments' ),
+			array(
+				'capability' => 'manage_options',
+				'default'    => 'default',
+				'type'       => 'option',
+			)
+		);
+
+		if ( Plugin::get_wsu_option( 'theme', 'allowRestricedOptions', false ) ) {
+
+			$wp_customize->add_control(
+				static::get_option_slug( 'site_options', 'allowComments' ),
+				array(
+					'settings'    => static::get_option_id( 'site_options', 'allowComments' ),
+					'type'        => 'select',
+					'section'     => static::$section_id,
+					'label'       => 'Allow Comments',
+					'description' => '',
+					'choices'     => array(
+						'default' => 'Default',
+						'show'    => 'Allow',
+						'hide'    => 'Disable',
+					),
+				)
+			);
+
+		}
+
 	}
 
 }

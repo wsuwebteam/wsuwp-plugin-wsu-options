@@ -22,6 +22,7 @@
     - applyLink:          string | empty | url
     - primaryActionText:  string | default, give
     - primaryActionLink:  string | default
+    - allowComments:      string | empty, default, hide, show 
 - scripts
     - syndicate           bool | false
     - jquery              bool | false
