@@ -1,0 +1,54 @@
+.wsu-customizer-control-wsu-toggle {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.wsu-customizer-control-wsu-toggle__label {
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.wsu-customizer-control-wsu-toggle__options{
+    display: flex;
+}
+
+.wsu-customizer-control-wsu-toggle__options input {
+    position: absolute;
+    top: -9999rem;
+    opacity: 0;
+}
+
+.wsu-customizer-control-wsu-toggle__options label {
+    display: block;
+    border: 1px solid #2271b1;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #555;
+    background-color: #fff;
+    color: #888;
+    position: relative;
+}
+
+.wsu-customizer-control-wsu-toggle__options input:checked + label {
+    background-color: #2271b1;
+    color: #fff;
+}
+
+.wsu-customizer-control-wsu-toggle__options input:focus + label {
+    outline: 2px solid #2271b1;
+    outline-offset: 2px;
+    z-index: 9999;
+}
+
+.wsu-customizer-control-wsu-toggle__options label:nth-child(2) {
+    border-radius: 6px 0 0 6px;
+}
+
+.wsu-customizer-control-wsu-toggle__options label:nth-child(4) {
+    border-radius: 0 6px 6px 0;
+}

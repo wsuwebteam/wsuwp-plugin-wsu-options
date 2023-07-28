@@ -8,11 +8,16 @@
 ### wsuwp
 ( type | default | description )
 - site_info:
-    
+- horizontal_nav:
+    - colorScheme: string | empty | light,dark
+- vertical_nav:
+    - colorScheme: string | empty | light,dark 
 - search:
     - showOptions: string | empty, default, hide, show
     - context:     string | site,wsu
     - placeholder  string | Search
+- site_header:
+    - colorScheme: string | empty | light,dark
 - site_options:
     - campus:             string | empty | pullman,spokane,vancouver,tri-cities,everret,global 
     - parent_name:        string | empty | Parent site name
