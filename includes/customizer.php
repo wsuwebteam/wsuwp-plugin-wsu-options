@@ -158,9 +158,13 @@ class Customizer {
 			$customizer_dir = Plugin::get( 'dir' ) . '/customizer/';
 
 			require_once Plugin::get( 'dir' ) . '/classes/class-customizer-section.php';
+			require_once $customizer_dir . 'classes/class-wp-customize-control-toggle.php';
 
 			self::add_panels( $wp_customize );
 
+			require_once $customizer_dir . 'customizer-section-site-header.php';
+			require_once $customizer_dir . 'customizer-section-horizontal-nav.php';
+			require_once $customizer_dir . 'customizer-section-vertical-nav.php';
 			require_once $customizer_dir . 'customizer-section-theme-options.php';
 			require_once $customizer_dir . 'customizer-section-theme-options-advanced.php';
 			require_once $customizer_dir . 'customizer-section-social.php';
@@ -169,19 +173,44 @@ class Customizer {
 
 
 			Customizer_Section_Theme_Options::register_section( $wp_customize );
+			Customizer_Section_Site_Header::register_section( $wp_customize );
+			Customizer_Section_Horizontal_Nav::register_section( $wp_customize );
+			Customizer_Section_Vertical_Nav::register_section( $wp_customize );
 			Customizer_Section_Theme_Options_Advanced::register_section( $wp_customize );
 			Customizer_Section_Social::register_section( $wp_customize );
 			Customizer_Section_Contact::register_section( $wp_customize );
 
 			$sidebars = Widgets::get_sidebars();
 
-			foreach ( self::$templates as $template_slug => $template_args ) {
+			$template_options = apply_filters( 'wsu_template_options', array() );
 
-				$template_args['sidebars'] = array_merge( array( 'default' => 'Default', 'hide' => 'None' ), $sidebars );
+			$post_types = get_post_types( array( 'public' => true ), 'objects' );
 
-				Customizer_Section_Template_Layout::register_section( $wp_customize, $template_args['option_group'], $template_args );
+
+			$exclude_post_types = array( 'post', 'page', 'attachement' );
+
+			foreach ( $post_types as $post_type ) {
+
+				if ( ! in_array( $post_type->name, $exclude_post_types, true ) && ! array_key_exists( $post_type->name, $template_options ) && array_key_exists( 'post_type', $template_options ) ) {
+
+					$template_options[ $post_type->name ] = array(
+						'option_group'       => 'template_' . $post_type->name,
+						'displayName'        => $post_type->label,
+						'supports'           => $template_options['post_type']['supports'],
+					);
+				}
 			}
 
+			foreach ( $template_options as $template_slug => $template_args ) {
+
+				if ( 'post_type' !== $template_slug ) {
+
+					$template_args['sidebars'] = array_merge( array( 'hide' => 'None' ), $sidebars );
+
+					Customizer_Section_Template_Layout::register_section( $wp_customize, $template_args['option_group'], $template_args );
+
+				}
+			}
 		}
 
 	}
