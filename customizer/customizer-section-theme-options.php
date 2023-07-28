@@ -2,13 +2,75 @@
 
 class Customizer_Section_Theme_Options extends Customizer_Section {
 	protected static $section_id    = 'wsu_theme_options';
-	protected static $section_title = 'Theme Options';
+	protected static $section_title = 'General Options';
 	protected static $permissions   = 'manage_options';
 	protected static $panel_id      = 'wsu_theme_options';
 	protected static $description   = '';
 	protected static $priority      = 10;
 
 	protected static function add_controls( $wp_customize ) {
+
+		$wp_customize->add_setting(
+			static::get_option_id( 'site_options', 'campus' ),
+			array(
+				'capability' => 'manage_options',
+				'default'    => '',
+				'type'       => 'option',
+			)
+		);
+
+		$wp_customize->add_control(
+			static::get_option_slug( 'site_options', 'campus' ),
+			array(
+				'settings'    => static::get_option_id( 'site_options', 'campus' ),
+				'type'        => 'select',
+				'section'     => static::$section_id,
+				'label'       => 'Campus',
+				'description' => '',
+				'choices'     => array(
+					''           => 'N/A',
+					'pullman'    => 'Pullman',
+					'spokane'    => 'Spokane',
+					'tri-cities' => 'Tri-Cities',
+					'vancouver'  => 'Vancouver',
+					'everett'    => 'Everett',
+					'global'     => 'Global Campus',
+				),
+			)
+		);
+
+		$wp_customize->add_setting(
+			static::get_option_id( 'site_options', 'allowComments' ),
+			array(
+				'capability' => 'manage_options',
+				'default'    => 'default',
+				'type'       => 'option',
+			)
+		);
+
+		if ( Plugin::get_wsu_option( 'theme', 'allowRestricedOptions', false ) ) {
+
+			$wp_customize->add_control(
+				static::get_option_slug( 'site_options', 'allowComments' ),
+				array(
+					'settings'    => static::get_option_id( 'site_options', 'allowComments' ),
+					'type'        => 'select',
+					'section'     => static::$section_id,
+					'label'       => 'Allow Comments',
+					'description' => '',
+					'choices'     => array(
+						'default' => 'Default',
+						'show'    => 'Allow',
+						'hide'    => 'Disable',
+					),
+				)
+			);
+
+		}
+
+
+
+		/*$wsu_theme_options = apply_filters( 'wsu_theme_options', array() );
 
 		$header_options = array( 'unit'   => 'Unit' );
 
@@ -81,6 +143,24 @@ class Customizer_Section_Theme_Options extends Customizer_Section {
 				'capability' => 'manage_options',
 				'default'    => 'default',
 				'type'       => 'option',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control_WSU_Toggle(
+				$wp_customize,
+				static::get_option_slug( 'theme', 'displayQuicklinks' ),
+				array(
+					'settings'    => static::get_option_id( 'theme', 'displayQuicklinks' ),
+					'type'        => 'wsutoggle',
+					'section'     => static::$section_id,
+					'label'       => 'Display Search/Quicklinks',
+					'description' => '',
+					'choices'     => array(
+						'show'    => 'On',
+						'hide'    => 'Off',
+					),
+				)
 			)
 		);
 
@@ -189,34 +269,7 @@ class Customizer_Section_Theme_Options extends Customizer_Section {
 		);
 
 
-		$wp_customize->add_setting(
-			static::get_option_id( 'site_options', 'allowComments' ),
-			array(
-				'capability' => 'manage_options',
-				'default'    => 'default',
-				'type'       => 'option',
-			)
-		);
-
-		if ( Plugin::get_wsu_option( 'theme', 'allowRestricedOptions', false ) ) {
-
-			$wp_customize->add_control(
-				static::get_option_slug( 'site_options', 'allowComments' ),
-				array(
-					'settings'    => static::get_option_id( 'site_options', 'allowComments' ),
-					'type'        => 'select',
-					'section'     => static::$section_id,
-					'label'       => 'Allow Comments',
-					'description' => '',
-					'choices'     => array(
-						'default' => 'Default',
-						'show'    => 'Allow',
-						'hide'    => 'Disable',
-					),
-				)
-			);
-
-		}
+		*/
 
 	}
 
