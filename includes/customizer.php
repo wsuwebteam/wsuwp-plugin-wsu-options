@@ -187,7 +187,7 @@ class Customizer {
 			$post_types = get_post_types( array( 'public' => true ), 'objects' );
 
 
-			$exclude_post_types = array( 'post', 'page', 'attachement' );
+			$exclude_post_types = array( 'post', 'page', 'attachement', 'tribe_venue', 'tribe_organizer', 'tribe_events_cat' );
 
 			foreach ( $post_types as $post_type ) {
 
