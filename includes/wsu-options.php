@@ -5,7 +5,33 @@ class WSU_Options {
 
 	public static function init() {
 
+		add_filter( 'wsu_theme_options', array( __CLASS__, 'get_theme_options' ) );
+
 	}
+
+
+	public static function get_theme_options( $wsu_options, $option_key = false, $default = '', $option_base = 'wsuwp' ) {
+
+		$wsu_options = get_option( $option_base, array() );
+		
+		if ( ! $option_key ) {
+
+			return $wsu_options;
+
+		}
+
+		if ( ! empty( $wsu_options[ $option_group ] ) && isset( $wsu_options[ $option_group ][ $option_key ] ) ) {
+
+			return $wsu_options[ $option_group ][ $option_key ];
+
+		} else {
+
+			return $default;
+
+		}
+
+	}
+
 
 	public static function get_wsu_option( $option_group, $option_key, $default = '', $option_base = 'wsuwp' ) {
 
