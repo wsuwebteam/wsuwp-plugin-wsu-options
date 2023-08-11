@@ -10,7 +10,7 @@ class Customizer_Section_Site_Header extends Customizer_Section {
 
 	protected static function add_controls( $wp_customize ) {
 
-		$wsu_theme_options = apply_filters( 'wsu_theme_options', array() );
+		$wsu_theme_options = apply_filters( 'wsu_theme_customizer_options', array() );
 
 		$site_header_options = ( ! empty( $wsu_theme_options['site_header'] ) ) ? $wsu_theme_options['site_header'] : array();
 
