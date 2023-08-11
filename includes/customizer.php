@@ -163,6 +163,7 @@ class Customizer {
 			self::add_panels( $wp_customize );
 
 			require_once $customizer_dir . 'customizer-section-site-header.php';
+			require_once $customizer_dir . 'customizer-section-audience-nav.php';
 			require_once $customizer_dir . 'customizer-section-horizontal-nav.php';
 			require_once $customizer_dir . 'customizer-section-vertical-nav.php';
 			require_once $customizer_dir . 'customizer-section-theme-options.php';
@@ -174,6 +175,7 @@ class Customizer {
 
 			Customizer_Section_Theme_Options::register_section( $wp_customize );
 			Customizer_Section_Site_Header::register_section( $wp_customize );
+			Customizer_Section_Audience_Nav::register_section( $wp_customize );
 			Customizer_Section_Horizontal_Nav::register_section( $wp_customize );
 			Customizer_Section_Vertical_Nav::register_section( $wp_customize );
 			Customizer_Section_Theme_Options_Advanced::register_section( $wp_customize );
