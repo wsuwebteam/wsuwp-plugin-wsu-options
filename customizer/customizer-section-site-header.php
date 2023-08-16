@@ -223,6 +223,28 @@ class Customizer_Section_Site_Header extends Customizer_Section {
 				)
 			);
 		};
+
+		if ( array_key_exists( 'subtitleLink', $site_header_options ) ) {
+
+			$wp_customize->add_setting(
+				static::get_option_id( 'site_options', 'subtitleLink' ),
+				array(
+					'capability' => 'manage_options',
+					'default'    => ( ! empty( $site_header_options['subtitleLink']['default'] ) ) ? $site_header_options['subtitleLink']['default'] : '',
+					'type'       => 'option',
+				)
+			);
+
+			$wp_customize->add_control( 
+				static::get_option_slug( 'site_options', 'subtitleLink' ),
+				array(
+					'label'    => 'Subtitle Link',
+					'section'  => static::$section_id,
+					'settings' => static::get_option_id( 'site_options', 'subtitleLink' ),
+					'type'     => 'text',
+				)
+			);
+		};
 	}
 
 }
