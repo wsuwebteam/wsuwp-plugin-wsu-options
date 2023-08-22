@@ -186,6 +186,7 @@ class Customizer {
 
 			$template_options = apply_filters( 'wsu_template_options', array() );
 
+
 			$post_types = get_post_types( array( 'public' => true ), 'objects' );
 
 
@@ -201,11 +202,22 @@ class Customizer {
 						'supports'           => $template_options['post_type']['supports'],
 					);
 				}
+
+				$archive_template = 'template_archive_' . $post_type->name;
+
+				if ( ! in_array( $post_type->name, $exclude_post_types, true ) && ! array_key_exists( $archive_template, $template_options ) && array_key_exists( 'post_type_archive', $template_options ) ) {
+
+					$template_options[ $post_type->name . '_archive' ] = array(
+						'option_group'       => $archive_template,
+						'displayName'        => $post_type->label . ' Archive',
+						'supports'           => $template_options['post_type_archive']['supports'],
+					);
+				}
 			}
 
 			foreach ( $template_options as $template_slug => $template_args ) {
 
-				if ( 'post_type' !== $template_slug ) {
+				if ( 'post_type' !== $template_slug && 'post_type_archive' !== $template_slug  ) {
 
 					$template_args['sidebars'] = array_merge( array( 'hide' => 'None' ), $sidebars );
 

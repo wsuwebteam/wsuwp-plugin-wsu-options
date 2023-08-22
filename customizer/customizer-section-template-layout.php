@@ -468,6 +468,31 @@ class Customizer_Section_Template_Layout extends Customizer_Section {
 		}
 
 
+		if ( array_key_exists( 'bodyClass', $template_options['supports'] ) ) {
+
+			$wp_customize->add_setting(
+				static::get_option_id( $template_options['option_group'], 'bodyClass' ),
+				array(
+					'capability' => 'manage_options',
+					'default'    => $template_options['supports']['bodyClass'],
+					'type'       => 'option',
+				)
+			);
+
+			$wp_customize->add_control(
+				static::get_option_slug( $template_options['option_group'], 'bodyClass' ),
+				array(
+					'settings'    => static::get_option_id( $template_options['option_group'], 'bodyClass' ),
+					'type'        => 'text',
+					'section'     => static::$section_id,
+					'label'       => 'Additional Classes (body)',
+					'description' => '',
+				)
+			);
+
+		}
+
+
 		/*if ( in_array( 'sidebar', $section_args['supports']) ) {
 
 			$wp_customize->add_setting(
