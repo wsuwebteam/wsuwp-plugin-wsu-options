@@ -12,7 +12,7 @@ class Customizer_Section_Horizontal_Nav extends Customizer_Section {
 
 		if ( has_nav_menu( 'site_horizontal' ) ) {
 
-			$wsu_theme_options = apply_filters( 'wsu_theme_options', array() );
+			$wsu_theme_options = apply_filters( 'wsu_theme_customizer_options', array() );
 
 			$customizer_options = ( ! empty( $wsu_theme_options['horizontal_nav'] ) ) ? $wsu_theme_options['horizontal_nav'] : array();
 
@@ -39,6 +39,35 @@ class Customizer_Section_Horizontal_Nav extends Customizer_Section {
 							'description' => '',
 							'choices'     => ( ! empty( $customizer_options['colorScheme']['options'] ) ) ? $customizer_options['colorScheme']['options'] : array(),
 						)
+					)
+				);
+
+			}
+
+			if ( array_key_exists( 'menuDepth', $customizer_options ) ) {
+
+				$wp_customize->add_setting(
+					static::get_option_id( 'horizontal_nav', 'menuDepth' ),
+					array(
+						'capability' => 'manage_options',
+						'default'    => ( ! empty( $customizer_options['menuDepth']['default'] ) ) ? $customizer_options['menuDepth']['default'] : '',
+						'type'       => 'option',
+					)
+				);
+
+				$wp_customize->add_control(
+					static::get_option_slug( 'horizontal_nav', 'menuDepth' ),
+					array(
+						'settings'    => static::get_option_id( 'horizontal_nav', 'menuDepth' ),
+						'type'        => 'select',
+						'section'     => static::$section_id,
+						'label'       => 'Menu Depth',
+						'description' => '',
+						'choices'     => array(
+							1 => '1',
+							2 => '2',
+							3 => '3',
+						),
 					)
 				);
 
